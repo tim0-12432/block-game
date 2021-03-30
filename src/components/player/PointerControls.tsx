@@ -6,11 +6,11 @@ extend({PointerLockControls});
 
 const PointerControls = (props: any) => {
     const { camera, gl } = useThree();
-    const controls = useRef();
+    const controls = useRef<any>();
 
     useEffect(() => {
         document.addEventListener("click", () => {
-                console.log("Lock controls!");
+            controls.current.lock();
         });
     }, [])
 
