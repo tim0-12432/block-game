@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 html,
@@ -22,4 +23,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.count {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 42px;
+    font-weight: 600;
+    z-index: 99;
+    color: white;
 }

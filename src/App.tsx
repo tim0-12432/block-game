@@ -17,7 +17,7 @@ const App: FC = () => {
 				<FPSStats />
 			</div> : null }
 			<div id={ styles.app }>
-				
+				<div id="count" className={ styles.count }>0</div>
 			</div>
 		</>
 	);

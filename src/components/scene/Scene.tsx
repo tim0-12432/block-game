@@ -56,11 +56,18 @@ function animation() {
 	const topLayer = stack[stack.length - 1];
 	topLayer.threejs.position[topLayer.direction] += speed;
 
+    renderCount(stack.length);
+
 	if (camera.position.y < boxHeight * (stack.length - 2) + 4) {
 		camera.position.y += speed;
 	}
 
 	renderer.render(scene, camera);
+}
+
+function renderCount(count: number) {
+	const element = document.querySelector("#count");
+	element ? element.innerHTML = count.toString() : null;
 }
 
 const Scene = () => {
