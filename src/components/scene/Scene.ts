@@ -71,7 +71,7 @@ function generateBox({x, y, z, width, depth, falls}: BoxProps) {
 	body.position.set(x, y, z);
 	world.addBody(body);
 
-	const direction = "";
+	const direction = "x";
 
 	return {
 		threejs: mesh,
@@ -138,6 +138,10 @@ function renderCount() {
 	element ? element.innerHTML = count.toString() : null;
 }
 
+function gameOver() {
+	console.log("Game Over!", count);
+}
+
 const Scene = () => {
 	world = new CANNON.World();
 	world.gravity.set(0, -10, 0);
@@ -146,8 +150,8 @@ const Scene = () => {
 
 	scene = new THREE.Scene();
 
-	addLayer({ x: 0, z: 0, width: originalBoxSize, depth: originalBoxSize, direction: "x" });
-	addLayer({ x: -10, z: 0, width: originalBoxSize, depth: originalBoxSize, direction: "z" });
+	addLayer({ x: 0, z: 0, width: originalBoxSize, depth: originalBoxSize, direction: "" });
+	addLayer({ x: -10, z: 0, width: originalBoxSize, depth: originalBoxSize, direction: "x" });
 
 	const ambientLight = new THREE.AmbientLight(0xffffff, .6);
 	scene.add(ambientLight);
@@ -201,6 +205,8 @@ const Scene = () => {
 				const nextDirection = direction == "x" ? "z" : "x";
 
 				addLayer({ x: nextX, z: nextZ, width: newWidth, depth: newDepth, direction: nextDirection });
+			} else {
+				gameOver();
 			}
 		}
 	});
