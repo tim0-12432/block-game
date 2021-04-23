@@ -15,7 +15,7 @@ body,
 }
 
 body {
-    background-color: black;
+    background: radial-gradient(circle, #111, #333, black);
     position: fixed;
     cursor: crosshair;
 }

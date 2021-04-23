@@ -212,7 +212,7 @@ const Scene = () => {
 	camera.position.set(4, 4, 4);
 	camera.lookAt(0, 0, 0);
 
-	renderer = new THREE.WebGLRenderer({ antialias: true });
+	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.render(scene, camera);
     
@@ -220,5 +220,15 @@ const Scene = () => {
 	rootElement ? rootElement.appendChild(renderer.domElement) : null;
 
 	window.addEventListener("click", () => startGame());
+	window.addEventListener("keyup", (e) => {
+		switch (e.code) {
+		case "Space":
+		case "Enter":
+			startGame();
+			break;
+		default:
+			console.log(e.code);
+		}
+	});
 };
 export default Scene;
