@@ -1,0 +1,22 @@
+name: Code-Linting
+
+on: [push, pull_request, deployment, release]
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 15.x
+
+      - name: install modules
+        run: npm ci
+
+      - name: esLint
+        run: npm run es:lint

@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "es:lint": "node_modules/.bin/eslint --ext=js --ext=ts --ext=jsx --ext=tsx .",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "deploy": "gh-pages -b built-page -d build",

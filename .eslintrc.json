@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "indent": [
+      "warn",
+      "tab"
+    ],
+    "no-mixed-spaces-and-tabs": [
+        "warn"
+    ],
+    "linebreak-style": [
+        "off",
+        "windows"
+    ],
+    "quotes": [
+        "warn",
+        "double"
+    ],
+    "semi": [
+        "error",
+        "always"
+    ],
+    "no-undef": [
+        "warn"
+    ],
+    "no-unused-vars": [
+        "warn"
+    ],
+    "react/prop-types": [
+        "warn"
+    ],
+    "react/react-in-jsx-scope": [
+        "warn"
+    ]
+  }
+}
