@@ -5,7 +5,7 @@ import styles from "./App.module.scss";
 import Scene from "./components/game/Scene";
 
 const App: FC = () => {
-	const [devEnabled, setDevEnabled] = useState(true);
+	const [devEnabled, setDevEnabled] = useState(false);
 
 	useEffect(() => {
 		Scene();
