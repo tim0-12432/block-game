@@ -3,9 +3,11 @@ import { FPSStats } from "fps-react";
 
 import styles from "./App.module.scss";
 import Scene from "./components/game/Scene";
+import Manual from "./components/manual/Manual";
 
 const App: FC = () => {
 	const [devEnabled, setDevEnabled] = useState(false);
+  const [manualEnabled, setManualEnabled] = useState(true);
 
 	useEffect(() => {
 		Scene();
@@ -14,6 +16,12 @@ const App: FC = () => {
 	function reloadPage() {
 		window.location.reload();
 	}
+
+	window.addEventListener("keyup", (e) => {
+		if (e.code == "KeyR") {
+			reloadPage();
+		}
+	});
 
 	return (
 		<>
@@ -28,6 +36,9 @@ const App: FC = () => {
 					<button onClick={(e) => reloadPage()}>Try again!</button>
 				</div>
 			</div>
+      { manualEnabled ? <div id={ styles.manual }>
+				<Manual />
+			</div> : null }
 		</>
 	);
 };

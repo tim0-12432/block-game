@@ -1,0 +1,23 @@
+.manual {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px 30px;
+
+    p {
+        margin-bottom: 18px;
+        font-size: 24px;
+    
+        kbd {
+            border: 2px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    }
+}
