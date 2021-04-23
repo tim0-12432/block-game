@@ -103,7 +103,7 @@ const Scene = () => {
 			const newDepth = originalBoxSize;
 			const nextDirection = direction == "x" ? "z" : "x";
 
-			addLayer({ x: nextX, z: nextZ, width: newWidth, depth: newDepth, direction: nextDirection })
+			addLayer({ x: nextX, z: nextZ, width: newWidth, depth: newDepth, direction: nextDirection });
 		}
 	});
 };
