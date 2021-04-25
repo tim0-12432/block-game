@@ -1,0 +1,39 @@
+.options {
+    position: absolute;
+    color: white;
+    top: 30px;
+    right: 30px;
+    padding: 10px 20px;
+
+    > h2 {
+        font-weight: 500;
+        font-size: calc(min(24px, 5vw))
+    }
+    > p {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: calc(min(20px, 4vw));
+
+        b {
+            margin-right: 10px;
+            flex: 1;
+            font-weight: 400;
+        }
+
+        p {
+            cursor: pointer;
+
+            &.off {
+                color: rgb(255, 34, 34);
+            }
+            &.on {
+                color: rgb(79, 255, 79);
+            }
+            &.disabled {
+                color: gray;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

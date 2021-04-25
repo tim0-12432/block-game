@@ -3,21 +3,53 @@ import { FPSStats } from "fps-react";
 
 import styles from "./App.module.scss";
 import Scene from "./components/game/Scene";
+import Manual from "./components/manual/Manual";
+import Options from "./components/options/Options";
+import { OptionsProps } from "./types";
+import { getFromLocalStorage, saveToLocalStorage } from "./storage";
 
 const App: FC = () => {
-	const [devEnabled, setDevEnabled] = useState(false);
+	const OPTION_KEY = "little-block-game.options";
+	const [options, setOptions] = useState<OptionsProps>(
+		{
+			dev: false,
+			manual: false
+		}
+	);
 
 	useEffect(() => {
-		Scene();
+		const setDefaultSettings = async () => {
+			await setOptions(getOptions());
+			Scene();
+		};
+		setDefaultSettings();
 	}, []);
+
+	useEffect(() => {
+		saveOptions();
+	}, [options]);
 
 	function reloadPage() {
 		window.location.reload();
 	}
 
+	function saveOptions() {
+		saveToLocalStorage(OPTION_KEY, options);
+	}
+	function getOptions() {
+		const stored = getFromLocalStorage(OPTION_KEY);
+		return stored == {} ? options : stored;
+	}
+
+	window.addEventListener("keyup", (e) => {
+		if (e.code == "KeyR") {
+			reloadPage();
+		}
+	});
+
 	return (
 		<>
-			{ devEnabled ? <div id={ styles.dev }>
+			{ options.dev ? <div id={ styles.dev }>
 				<FPSStats />
 			</div> : null }
 			<div id={ styles.app }>
@@ -26,8 +58,12 @@ const App: FC = () => {
 					<h1>Game Over!</h1>
 					<h2>You reached <span id="gm-count">0</span> Points!</h2>
 					<button onClick={(e) => reloadPage()}>Try again!</button>
+					<Options options={ options } setOptions={ setOptions } />
 				</div>
 			</div>
+			{ options.manual ? <div id={ styles.manual }>
+				<Manual />
+			</div> : null }
 		</>
 	);
 };
