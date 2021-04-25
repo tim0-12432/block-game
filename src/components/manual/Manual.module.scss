@@ -12,7 +12,7 @@
 
     p {
         margin-bottom: 18px;
-        font-size: 24px;
+        font-size: calc(min(32px, 6vw));
     
         kbd {
             border: 2px solid white;
