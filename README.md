@@ -5,7 +5,7 @@
 [![Website](https://img.shields.io/website?down_color=red&down_message=offline&label=webpage&up_color=brightgreen&up_message=online&url=https%3A%2F%2Ftim0-12432.github.io%2Fblock-game)](https://tim0-12432.github.io/block-game)
 
 
-My Highscore is **20** :´(
+My Highscore is **24** :´(
 
     
 Try to beat me...
