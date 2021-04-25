@@ -38,7 +38,12 @@ const App: FC = () => {
 	}
 	function getOptions() {
 		const stored = getFromLocalStorage(OPTION_KEY);
-		return stored == {} ? options : stored;
+		if (stored.failed) {
+			saveOptions();
+			return options;
+		} else {
+			return stored;
+		}
 	}
 
 	window.addEventListener("keyup", (e) => {

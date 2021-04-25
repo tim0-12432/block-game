@@ -5,7 +5,7 @@ export const saveToLocalStorage = (key: string, value: any) => {
 export const getFromLocalStorage: any = (key: string) => {
 	if (localStorage.getItem(key) === null) {
 		localStorage.setItem(key, JSON.stringify({}));
-		return {};
+		return {failed: true};
 	} else {
 		return JSON.parse(localStorage.getItem(key) || "{}");
 	}
