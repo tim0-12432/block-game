@@ -79,7 +79,7 @@ const App: FC = () => {
 				</div>
 			</div>
 			{ options.manual ? <div id={ styles.manual }>
-				<Manual />
+				<Manual options={ options } />
 			</div> : null }
 		</>
 	);

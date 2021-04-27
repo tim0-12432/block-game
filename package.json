@@ -35,7 +35,7 @@
     "es:lint": "node_modules/.bin/eslint --ext=js --ext=ts --ext=jsx --ext=tsx .",
     "style:lint": "node_modules/.bin/stylelint \"**/*.*css\"",
     "lint": "npm run es:lint && npm run style:lint",
-    "lint:fix": "node_modules/.bin/eslint --ext=js --ext=ts --ext=jsx --ext=tsx . --fix && node_modules/.bin/stylelint \"**/*.*css\" --fix",
+    "lint:fix": "eslint --ext=js --ext=ts --ext=jsx --ext=tsx . --fix && stylelint \"**/*.*css\" --fix",
     "audit": "npm audit fix",
     "build": "react-scripts build",
     "test": "react-scripts test",

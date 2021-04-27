@@ -42,13 +42,13 @@ const WebCamControl: FC<WebcamProps> = ({ options }: WebcamProps) => {
                         video as faceapi.TNetInput,
                         new faceapi.TinyFaceDetectorOptions()
 					).withFaceLandmarks().withFaceExpressions();
+					canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
 					if (detections == undefined) {
 						options.dev ? console.error("No face found!") : null;
 						setInfoText("No face found!");
 					} else {
 						setInfoText("");
 						const resizedDetections = faceapi.resizeResults(detections, displaySize);
-						canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
 						faceapi.draw.drawFaceLandmarks(canvas, resizedDetections as faceapi.draw.DrawFaceLandmarksInput);
 						const expressions = resizedDetections.expressions;
 						const surprised = expressions.surprised > 0.8;
