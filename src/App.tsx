@@ -7,13 +7,15 @@ import Manual from "./components/manual/Manual";
 import Options from "./components/options/Options";
 import { OptionsProps } from "./types";
 import { getFromLocalStorage, saveToLocalStorage } from "./storage";
+import WebCamControl from "./components/game/WebCamControl";
 
 const App: FC = () => {
 	const OPTION_KEY = "little-block-game.options";
 	const [options, setOptions] = useState<OptionsProps>(
 		{
 			dev: false,
-			manual: false
+			manual: false,
+			faceCon: false
 		}
 	);
 
@@ -42,6 +44,11 @@ const App: FC = () => {
 			saveOptions();
 			return options;
 		} else {
+			Object.keys(options).forEach((option) => {
+				if (stored[option] == undefined) {
+					stored[option] = options[option];
+				}
+			});
 			return stored;
 		}
 	}
@@ -57,6 +64,11 @@ const App: FC = () => {
 			{ options.dev ? <div id={ styles.dev }>
 				<FPSStats />
 			</div> : null }
+			{
+				options.faceCon
+					? <WebCamControl options={ options } />
+					: null
+			}
 			<div id={ styles.app }>
 				<div id="count" className={ styles.count }>0</div>
 				<div id="gameOverScreen" className={ styles.gameOver }>

@@ -14,6 +14,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "cannon": "^0.6.2",
+    "face-api.js": "^0.22.2",
     "fps-react": "^0.1.6",
     "gh-pages": "^3.1.0",
     "nanoid": "^3.1.22",
@@ -22,6 +23,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-three-fiber": "^5.3.22",
+    "react-webcam": "^5.2.3",
     "three": "^0.126.1",
     "typescript": "^4.2.3",
     "use-cannon": "^0.5.3",
@@ -33,10 +35,11 @@
     "es:lint": "node_modules/.bin/eslint --ext=js --ext=ts --ext=jsx --ext=tsx .",
     "style:lint": "node_modules/.bin/stylelint \"**/*.*css\"",
     "lint": "npm run es:lint && npm run style:lint",
+    "lint:fix": "node_modules/.bin/eslint --ext=js --ext=ts --ext=jsx --ext=tsx . --fix && node_modules/.bin/stylelint \"**/*.*css\" --fix",
+    "audit": "npm audit fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy": "gh-pages -b built-page -d build",
-    "eject": "react-scripts eject"
+    "deploy": "gh-pages -b built-page -d build"
   },
   "eslintConfig": {
     "extends": [
