@@ -19,13 +19,28 @@ jobs:
       - name: clean install
         run: npm ci
 
+      - name: licenses
+        run: npm run licenses:ci
+
       - name: build
         run: npm run build
         env:
           CI: false
+
+      - name: test
+        run: npm run test:ci
 
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: built-page
           folder: build
+
+      - name: collect artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: |
+            coverage/lcov-report
+            licenses.csv
+          if-no-files-found: error
