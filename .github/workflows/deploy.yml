@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: git checkout main
+      - name: git checkout master
         uses: actions/checkout@v2
 
       - name: node install
