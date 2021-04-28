@@ -5,12 +5,12 @@ import { fireEvent, getByLabelText, getByTestId, getByText, render, screen } fro
 import Options from "../../../components/options/Options";
 import styles from "../../../components/options/Options.module.scss";
 
-let testOptions = {
+let testOptions:{ [key: string]: boolean } = {
 	a: false,
 	b: false,
 	c: true
 };
-function setTestOptions(options: { a: boolean; b: boolean; c: boolean; }) {
+function setTestOptions(options: { [key: string]: boolean }) {
 	testOptions = options;
 }
 
@@ -26,7 +26,21 @@ describe("options", () => {
 		expect(container).toBeInTheDocument;
 		expect(screen.getByText(/settings/i)).toBeVisible();
 	});
+	test("options are not visible", () => {
+		Object.keys(testOptions).forEach((key) => {
+			expect(() => { return screen.getByText(`${key}:`); })
+				.toThrow(`Unable to find an element with the text: ${key}:. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.`);
+		});
+	});
 	test("settings is clickable", () => {
 		fireEvent.click(screen.getByText(/settings/i));
+	});
+	test("options are visible", () => {
+		fireEvent.click(screen.getByText(/settings/i));
+		Object.keys(testOptions).forEach((key) => {
+			const option = screen.getByText(`${key}:`);
+			expect(option).toBeInTheDocument();
+			expect(option).toBeVisible();
+		});
 	});
 });
