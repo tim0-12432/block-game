@@ -43,4 +43,16 @@ describe("options", () => {
 			expect(option).toBeVisible();
 		});
 	});
+	test("options have the right checkbox", () => {
+		fireEvent.click(screen.getByText(/settings/i));
+		Object.keys(testOptions).forEach((key, index) => {
+			const option = screen.getByText(`${key}:`).nextElementSibling;
+			console.log(option?.classList);
+			if (testOptions[index]) {
+				expect(option?.classList.contains(styles.on)).toBeTruthy();
+			} else {
+				expect(option?.classList.contains(styles.off)).toBeTruthy();
+			}
+		});
+	});
 });
