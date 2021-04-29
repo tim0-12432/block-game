@@ -109,6 +109,8 @@ const resourcesIT = {
 i18n.use(detector).use(initReactI18next).init({
     fallbackLng: "en",
     keySeparator: ".",
+    ns: ["translation"],
+    defaultNS: "translation",
     debug: false,
     resources: {
       en: resourcesEN,

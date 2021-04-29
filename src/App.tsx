@@ -6,7 +6,7 @@ import Scene from "./components/game/Scene";
 import Manual from "./components/manual/Manual";
 import Options from "./components/options/Options";
 import { OptionsProps } from "./types";
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { getFromLocalStorage, saveToLocalStorage } from "./storage";
 
 const App: FC = () => {
@@ -75,4 +75,4 @@ const App: FC = () => {
 	);
 };
 
-export default withTranslation()(App);
+export default App;

@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { OptionsProps } from "../../types";
 
 import styles from "./Options.module.scss";
@@ -37,4 +37,4 @@ const Options: FC<Props> = ({ options, setOptions }: Props) => {
 	);
 };
 
-export default withTranslation()(Options);
+export default Options;

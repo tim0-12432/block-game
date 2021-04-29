@@ -1,14 +1,18 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { fireEvent, getByLabelText, getByTestId, getByText, render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Manual from "../../../components/manual/Manual";
-import styles from "../../../components/manual/Manual.module.scss";
+import { I18nextProvider } from "react-i18next";
 
-const MANUAL_CONTAINER_CLASS = styles.manual;
+import i18n from "../../../i18n/test.config";
 
 beforeEach(() => {
-	render(<Manual />);
+	render(
+		<I18nextProvider i18n={ i18n }>
+			<Manual />
+		</I18nextProvider>
+	);
 });
 
 describe("manual", () => {

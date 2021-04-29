@@ -1,6 +1,6 @@
 
 import React, { FC } from "react";
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import styles from "./Manual.module.scss";
 
@@ -15,4 +15,4 @@ const Manual: FC = () => {
 	);
 };
 
-export default withTranslation()(Manual);
+export default Manual;
