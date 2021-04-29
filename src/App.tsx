@@ -6,6 +6,7 @@ import Scene from "./components/game/Scene";
 import Manual from "./components/manual/Manual";
 import Options from "./components/options/Options";
 import { OptionsProps } from "./types";
+import { useTranslation, withTranslation } from "react-i18next";
 import { getFromLocalStorage, saveToLocalStorage } from "./storage";
 
 const App: FC = () => {
@@ -16,6 +17,7 @@ const App: FC = () => {
 			manual: false
 		}
 	);
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		const setDefaultSettings = async () => {
@@ -61,8 +63,8 @@ const App: FC = () => {
 				<div id="count" className={ styles.count }>0</div>
 				<div id="gameOverScreen" className={ styles.gameOver }>
 					<h1>Game Over!</h1>
-					<h2>You reached <span id="gm-count">0</span> Points!</h2>
-					<button onClick={(e) => reloadPage()}>Try again!</button>
+					<h2>{ t("gameover.reachedPoints.part1") }<span id="gm-count">0</span>{ t("gameover.reachedPoints.part2") }</h2>
+					<button onClick={(e) => reloadPage()}>{ t("gameover.again") }</button>
 					<Options options={ options } setOptions={ setOptions } />
 				</div>
 			</div>
@@ -73,4 +75,4 @@ const App: FC = () => {
 	);
 };
 
-export default App;
+export default withTranslation()(App);

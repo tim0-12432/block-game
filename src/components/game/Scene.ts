@@ -163,7 +163,7 @@ function startGame() {
 	}
 }
 
-const Scene = () => {
+const Scene = (): void => {
 	world = new CANNON.World();
 	world.gravity.set(0, -10, 0);
 	world.broadphase = new CANNON.NaiveBroadphase();
