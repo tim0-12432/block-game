@@ -25,6 +25,7 @@
     "typescript": "^4.2.3"
   },
   "scripts": {
+    "install": "npm install",
     "start": "react-scripts start",
     "es:lint": "node_modules/.bin/eslint --ext=js --ext=ts --ext=jsx --ext=tsx .",
     "style:lint": "node_modules/.bin/stylelint \"**/*.*css\"",
@@ -33,8 +34,7 @@
     "test": "jest --config jest.config.js --watch",
     "test:ci": "jest --config jest.config.js --coverage=true --ci",
     "licenses:ci": "license-report --config license-report.config.json > licenses.csv",
-    "deploy": "gh-pages -b built-page -d build",
-    "eject": "react-scripts eject"
+    "deploy": "gh-pages -b built-page -d build"
   },
   "eslintConfig": {
     "extends": [
