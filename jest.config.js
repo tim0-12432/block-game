@@ -19,6 +19,8 @@ module.exports = {
     ],
     collectCoverageFrom: [
         "src/**/*.{js,jsx,ts,tsx}",
+        "!src/**/*.d.ts",
+        "!src/__mocks__/",
         "!<rootDir>/node_modules/"
     ]
 };

@@ -1,34 +1,7 @@
 import * as CANNON from "cannon";
 import * as THREE from "three";
+import { BoxProps, LayerProps, OverhangProps, CutProps } from "../../types";
 import { Camera } from "./Camera";
-
-type LayerProps = {
-    x: number,
-    z: number,
-    width: number,
-    depth: number,
-    direction: string
-}
-type OverhangProps = {
-    x: number,
-    z: number,
-    width: number,
-    depth: number
-}
-type BoxProps = {
-    x: number,
-    y: number,
-    z: number,
-    width: number,
-    depth: number,
-    falls: boolean
-}
-type CutProps = {
-	topLayer: any,
-	overlap: any,
-	size: any,
-	delta: any
-}
 
 const originalBoxSize = 3;
 const boxHeight = 1;
@@ -54,7 +27,7 @@ function addOverhanging({x, z, width, depth}: OverhangProps) {
 	overhangs.push(overhang);
 }
 
-function generateBox({x, y, z, width, depth, falls}: BoxProps) {
+export function generateBox({x, y, z, width, depth, falls}: BoxProps): any {
 	const geometry = new THREE.BoxGeometry(width, boxHeight, depth);
 
 	const color = new THREE.Color(`hsl(${30 + stack.length * 4}, 100%, 50%)`);
@@ -82,7 +55,7 @@ function generateBox({x, y, z, width, depth, falls}: BoxProps) {
 	};
 }
 
-function cutBox({topLayer, overlap, size, delta}: CutProps) {
+export function cutBox({topLayer, overlap, size, delta}: CutProps): any {
 	const direction = topLayer.direction;
 	const newWidth = direction == "x" ? overlap : topLayer.width;
 	const newDepth = direction == "z" ? overlap : topLayer.depth;
