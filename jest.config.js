@@ -21,6 +21,7 @@ module.exports = {
         "src/**/*.{js,jsx,ts,tsx}",
         "!src/**/*.d.ts",
         "!src/__mocks__/",
+        "!**/*config*",
         "!<rootDir>/node_modules/"
     ]
 };
