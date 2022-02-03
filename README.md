@@ -8,4 +8,4 @@
 My Highscore is **26** :´(
 
     
-Try to beat me...
+It's difficult to own Webpages now, because according to the court of Munich (Az. 3 O 17493/20) the inclusion of Google fonts and other CDNs is prohibited!
